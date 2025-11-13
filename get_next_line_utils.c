@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:06:44 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/13 14:45:14 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:48:47 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*gnl_strjoin_free(char *s1, const char *s2)
 		dst[i + j] = s2[j];
 		j++;
 	}
+	free(s1);
 	dst[i + j] = '\0';
 	return (dst);
 }
