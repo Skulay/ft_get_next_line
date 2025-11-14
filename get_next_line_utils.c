@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:06:44 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/14 19:28:27 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/11/14 21:26:36 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	gnl_strlen(char *s)
 		i++;
 	return (i);
 }
+
 char	*gnl_strdup(const char *s)
 {
 	int		i;
@@ -46,44 +47,43 @@ char	*gnl_strdup(const char *s)
 
 char	*gnl_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
+	if (!s)
+		return (NULL);
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
-	return (0);
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
 
-char *gnl_strjoin_free(char *s1, char *s2)
+char	*gnl_strjoin_free(char *s1, char *s2)
 {
-	char *dst;
+	char	*dst;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
+	if (!s1)
+		return (gnl_strdup(s2));
 	dst = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	if (!dst)
-		return NULL;
+		return (NULL);
 	while (s1[i])
 	{
 		dst[i] = s1[i];
-		 i++;
+		i++;
 	}
 	while (s2[j])
 	{
-		dst[i+j] = s2[j];
+		dst[i + j] = s2[j];
 		j++;
 	}
-	dst[i+j] = '\0';
-	free(s2);
+	dst[i + j] = '\0';
+	free(s1);
 	return (dst);
 }
