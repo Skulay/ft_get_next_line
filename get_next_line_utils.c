@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:06:44 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/14 18:03:09 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/11/14 19:28:27 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	gnl_strlen(char *s)
 
 	i = 0;
 	if (!s)
-		return (0);
+		return (i);
 	while (s[i])
 		i++;
 	return (i);
@@ -60,30 +60,30 @@ char	*gnl_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*gnl_strjoin_free(char *s1, char *s2)
+char *gnl_strjoin_free(char *s1, char *s2)
 {
-	char	*dst;
+	char *dst;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
 	if (!s1 || !s2)
-		return (0);
-	dst = malloc((gnl_strlen(s1) + gnl_strlen(s2) + 1) * sizeof(char));
+		return (NULL);
+	dst = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	if (!dst)
-		return (0);
+		return NULL;
 	while (s1[i])
 	{
 		dst[i] = s1[i];
-		i++;
+		 i++;
 	}
 	while (s2[j])
 	{
-		dst[i + j] = s2[j];
+		dst[i+j] = s2[j];
 		j++;
 	}
-	free(s1);
-	dst[i + j] = '\0';
+	dst[i+j] = '\0';
+	free(s2);
 	return (dst);
 }
