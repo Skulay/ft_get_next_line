@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:06:15 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/19 22:16:56 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/11/19 23:57:20 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*extract_rest(char *stash)
 	free(stash);
 	return (rest);
 }
+
 char	*read_file(int fd, char *buf, char *stash)
 {
 	int	r;
@@ -84,7 +85,6 @@ char	*read_file(int fd, char *buf, char *stash)
 	free(buf);
 	return (stash);
 }
-
 
 char	*get_next_line(int fd)
 {
