@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 15:19:51 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/14 21:25:25 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:13:48 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 char		*gnl_strdup(const char *s);
 char		*gnl_strjoin_free(char *s1, char *s2);
